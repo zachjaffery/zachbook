@@ -3,5 +3,6 @@ plugins:
 relative_links:
   enabled: true
   collections: true
+title: ZachBook
 include: 
   - index.md
