@@ -6,5 +6,5 @@ relative_links:
 title: ZachBook
 include: 
   - index.md
-  - parcalc.html
-{% include footer.html %}
+  - ../_includes/parcalc.html
+
