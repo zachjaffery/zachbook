@@ -1,3 +1,4 @@
+--
 plugins:
   - jekyll-midnight
 relative_links:
@@ -6,5 +7,7 @@ relative_links:
 title: ZachBook
 include: 
   - index.md
-  - ../_includes/parcalc.html
+--
+
+{% include parcalc.html %}
 
