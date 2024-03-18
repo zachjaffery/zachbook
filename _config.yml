@@ -7,3 +7,4 @@ title: ZachBook
 include: 
   - index.md
   - parcalc.html
+{% include footer.html %}
