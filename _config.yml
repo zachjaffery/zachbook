@@ -6,3 +6,4 @@ relative_links:
 title: ZachBook
 include: 
   - index.md
+  - parcalc.html
