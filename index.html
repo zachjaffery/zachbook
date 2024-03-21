@@ -32,74 +32,36 @@
 
 <!-- end custom head snippets -->
   <style>
-      <!-- HTML !-->
-  <button class="button-4" role="button">Button 4</button>
-  
-  /* CSS */
-  .button-4 {
-    appearance: none;
-    background-color: #FAFBFC;
-    border: 1px solid rgba(27, 31, 35, 0.15);
-    border-radius: 6px;
-    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
-    box-sizing: border-box;
-    color: #24292E;
-    cursor: pointer;
-    display: inline-block;
-    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 20px;
-    list-style: none;
-    padding: 6px 16px;
-    position: relative;
-    transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    vertical-align: middle;
-    white-space: nowrap;
-    word-wrap: break-word;
-  }
-  
-  .button-4:hover {
-    background-color: #F3F4F6;
-    text-decoration: none;
-    transition-duration: 0.1s;
-  }
-  
-  .button-4:disabled {
-    background-color: #FAFBFC;
-    border-color: rgba(27, 31, 35, 0.15);
-    color: #959DA5;
-    cursor: default;
-  }
-  
-  .button-4:active {
-    background-color: #EDEFF2;
-    box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
-    transition: none 0s;
-  }
-  
-  .button-4:focus {
-    outline: 1px transparent;
-  }
-  
-  .button-4:before {
-    display: none;
-  }
-  
-  .button-4:-webkit-details-marker {
-    display: none;
-  }
+    .button-2 {
+      background-color: rgba(51, 51, 51, 0.05);
+      border-radius: 8px;
+      border-width: 0;
+      color: #333333;
+      cursor: pointer;
+      display: inline-block;
+      font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+      list-style: none;
+      margin: 0;
+      padding: 10px 12px;
+      text-align: center;
+      transition: all 200ms;
+      vertical-align: baseline;
+      white-space: nowrap;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    }
     :root {
 
-    --input-color: #99A3BA;
+    --input-color: #323232;
     --input-border: #CDD9ED;
     --input-background: #fff;
     --input-placeholder: #CBD1DC;
 
-    --input-border-focus: #275EFE;
+    --input-border-focus: #7EAEE9;
 
     --group-color: var(--input-color);
     --group-border: var(--input-border);
@@ -109,11 +71,11 @@
     --group-border-focus: var(--input-border-focus);
     --group-background-focus: #678EFE;
 
-  }
+    }
 
-  .form-field {
+    .form-field {
       display: block;
-      width: 100%;
+      width: 25%;
       padding: 8px 16px;
       line-height: 25px;
       font-size: 14px;
@@ -125,92 +87,92 @@
       border: 1px solid var(--input-border);
       background: var(--input-background);
       transition: border .3s ease;
-      &::placeholder {
-          color: var(--input-placeholder);
+        &::placeholder {
+            color: var(--input-placeholder);
+        }
+        &:focus {
+            outline: none;
+            border-color: var(--input-border-focus);
+        }
       }
-      &:focus {
-          outline: none;
-          border-color: var(--input-border-focus);
-      }
-  }
   
-  .form-group {
-      position: relative;
-      display: flex;
-      width: 100%;
-      & > span,
-      .form-field {
-          white-space: nowrap;
-          display: block;
-          &:not(:first-child):not(:last-child) {
-              border-radius: 0;
-          }
-          &:first-child {
-              border-radius: 6px 0 0 6px;
-          }
-          &:last-child {
-              border-radius: 0 6px 6px 0;
-          }
-          &:not(:first-child) {
-              margin-left: -1px;
-          }
-      }
-      .form-field {
-          position: relative;
-          z-index: 1;
-          flex: 1 1 auto;
-          width: 1%;
-          margin-top: 0;
-          margin-bottom: 0;
-      }
-      & > span {
-          text-align: center;
-          padding: 8px 12px;
-          font-size: 14px;
-          line-height: 25px;
-          color: var(--group-color);
-          background: var(--group-background);
-          border: 1px solid var(--group-border);
-          transition: background .3s ease, border .3s ease, color .3s ease;
-      }
-      &:focus-within {
-          & > span {
-              color: var(--group-color-focus);
-              background: var(--group-background-focus);
-              border-color: var(--group-border-focus);
-          }
-      }
-  }
-  
-  html {
-      box-sizing: border-box;
-      -webkit-font-smoothing: antialiased;
-  }
-  
-  * {
-      box-sizing: inherit;
-      &:before,
-      &:after {
-          box-sizing: inherit;
-      }
-  }
-  
-  // Center
-  body {
-      min-height: 100vh;
-      font-family: 'Mukta Malar', Arial;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      background: #F5F9FF;  
-      .form-group {
-          max-width: 360px;
-          &:not(:last-child) {
-              margin-bottom: 32px;
-          }
-      }
-  }
+    .form-group {
+        position: relative;
+        display: flex;
+        width: 100%;
+        & > span,
+        .form-field {
+            white-space: nowrap;
+            display: block;
+            &:not(:first-child):not(:last-child) {
+                border-radius: 0;
+            }
+            &:first-child {
+                border-radius: 6px 0 0 6px;
+            }
+            &:last-child {
+                border-radius: 0 6px 6px 0;
+            }
+            &:not(:first-child) {
+                margin-left: -1px;
+            }
+        }
+        .form-field {
+            position: relative;
+            z-index: 1;
+            flex: 1 1 auto;
+            width: 1%;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        & > span {
+            text-align: center;
+            padding: 8px 12px;
+            font-size: 14px;
+            line-height: 25px;
+            color: var(--group-color);
+            background: var(--group-background);
+            border: 1px solid var(--group-border);
+            transition: background .3s ease, border .3s ease, color .3s ease;
+        }
+        &:focus-within {
+            & > span {
+                color: var(--group-color-focus);
+                background: var(--group-background-focus);
+                border-color: var(--group-border-focus);
+            }
+        }
+    }
+    
+    html {
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+    }
+    
+    * {
+        box-sizing: inherit;
+        &:before,
+        &:after {
+            box-sizing: inherit;
+        }
+    }
+    
+    // Center
+    body {
+        min-height: 100vh;
+        font-family: 'Mukta Malar', Arial;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: #F5F9FF;  
+        .form-group {
+            max-width: 360px;
+            &:not(:last-child) {
+                margin-bottom: 32px;
+            }
+        }
+    }
   </style>
   </head>
   <body>
@@ -255,7 +217,7 @@ class="button-4" role="button"
     <p class="calc">Parlay Calculator</p> 
 
     <br/>
-    <button onclick="addField()" class="button-4" role="button">Add odds</button>
+    <button onclick="addField()" class="button-2" role="button">Add odds</button>
     <br/>
     <div id="inputs">
       <input type="number" class="form-field" id="0">
@@ -263,7 +225,7 @@ class="button-4" role="button"
       <input type="number" class="form-field" id="1">
       <br/>
     </div>
-      <button onclick="calculateOdds()" class="button-4" role="button">Calculate</button>
+      <button onclick="calculateOdds()" class="button-2" role="button">Calculate</button>
       <div id="output">
     </div>
 
