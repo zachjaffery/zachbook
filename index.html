@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Welcome to ZachBook! | ZachBook</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="Welcome to ZachBook!" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://zachjaffery.github.io/zachbook/" />
+<meta property="og:url" content="https://zachjaffery.github.io/zachbook/" />
+<meta property="og:site_name" content="ZachBook" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Welcome to ZachBook!" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","headline":"Welcome to ZachBook!","name":"ZachBook","url":"https://zachjaffery.github.io/zachbook/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/zachbook/assets/css/style.css?v=3d32db113c2957cd93e033b03048446dd07b642e">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/zachbook/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://zachjaffery.github.io/zachbook/">ZachBook</a></h1>
+      
+
+      <h1 id="welcome-to-zachbook">Welcome to ZachBook!</h1>
+
+<h2 id="this-site-provides-a-look-at-the-betting-lines-we-at-zachbook-have-set">This site provides a look at the betting line’s we at ZachBook have set.</h2>
+
+<p>Today’s lines:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Outcome</th>
+      <th>Line</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Chem final</td>
+      <td>O/U 92.5</td>
+      <td>O +250, U -150</td>
+    </tr>
+    <tr>
+      <td>Stick and poke’s given</td>
+      <td>O/U 0.5</td>
+      <td>O +150, U -350</td>
+    </tr>
+    <tr>
+      <td>Mental breakdowns</td>
+      <td>O/U 1.5</td>
+      <td>O -150, U + 300</td>
+    </tr>
+  </tbody>
+</table>
+
+    <p class="calc">Parlay Calculator</p> 
+
+    <br/>
+    <button onclick="addField()" id="increment" class="increment">Add odds</button>
+    <br/>
+    <div id="inputs">
+      <input type="number" class="odds" id="0">
+      <br/>
+      <input type="number" class="odds" id="1">
+      <br/>
+    </div>
+      <button onclick="calculateOdds()" class="increment">Calculate</button>
+      <div id="output">
+    </div>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+
+
+
+
+  <script type="text/javascript">
+    var idCount = 2
+    function addField() {
+        var empty = document.getElementById("inputs");
+        var inp = "<input type='number' class='odds' id='"+idCount+"'><br/>";
+        idCount++;
+        empty.insertAdjacentHTML("afterend", inp);
+    }
+
+    function calculateOdds() {
+        var out = document.getElementById("output");
+        var inputElements = []
+        for (i = 0; i <idCount; i++) {
+          var tmpId = i.toString();
+          var tmpInp = document.getElementById(tmpId).value;
+          inputElements.push(tmpInp);
+        }
+
+        for (i = 0; i < idCount; i++) {
+            if (i == 0) {
+              if (inputElements[i] < 0) {
+                    var dec = (Math.abs(100 / inputElements[i])+1);
+                    count = dec;
+                }
+                else {
+                    var dec = (inputElements[i] / 100 + 1);
+                    count = dec;
+                }
+            }
+            else {
+                if (inputElements[i] < 0) {
+                    var dec = (Math.abs(100 / inputElements[i])+1);
+                    count = count * dec
+                }
+                else {
+                    var dec = (inputElements[i] / 100 + 1);
+                    count = count * dec;
+                }
+            }
+
+        }
+        finalOdds = Math.round((count-1)*100);
+
+        if (finalOdds < 0) {
+          var outString = "Parlay odds: -" + finalOdds;
+        }
+        else {
+          var outString = "Parlay odds: +" + finalOdds;
+        }
+        out.innerHTML = outString;
+
+    }
+  </script>
+  </body>
+</html>
