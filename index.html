@@ -246,9 +246,21 @@
     <script>anchors.add();</script>
 
 
-
+  <script>
+    //adjust calc based on user device
+       if (navigator.userAgent.match(/Android/i)
+       || navigator.userAgent.match(/webOS/i)
+       || navigator.userAgent.match(/iPhone/i)
+       || navigator.userAgent.match(/iPad/i)
+       || navigator.userAgent.match(/iPod/i)
+       || navigator.userAgent.match(/BlackBerry/i)
+       || navigator.userAgent.match(/Windows Phone/i)) {
+          document.getElementById("calcDiv").style.width="100%";
+       }
+   </script>
 
   <script type="text/javascript">
+    //add odds boxes
     var idCount = 2
     function addField() {
         var empty = document.getElementById("inputs");
@@ -256,16 +268,16 @@
         idCount++;
         empty.insertAdjacentHTML("afterend", inp);
     }
-
+    //calculate parlay odds
     function calculateOdds() {
         var out = document.getElementById("output");
         var inputElements = []
+        //get alls inputs
         for (i = 0; i <idCount; i++) {
           var tmpId = i.toString();
           var tmpInp = document.getElementById(tmpId).value;
           inputElements.push(tmpInp);
         }
-
         for (i = 0; i < idCount; i++) {
             if (i == 0) {
               if (inputElements[i] < 0) {
