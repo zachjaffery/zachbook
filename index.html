@@ -248,15 +248,29 @@
 
   <script>
     //adjust calc based on user device
-       if (navigator.userAgent.match(/Android/i)
-       || navigator.userAgent.match(/webOS/i)
-       || navigator.userAgent.match(/iPhone/i)
-       || navigator.userAgent.match(/iPad/i)
-       || navigator.userAgent.match(/iPod/i)
-       || navigator.userAgent.match(/BlackBerry/i)
-       || navigator.userAgent.match(/Windows Phone/i)) {
+       let hasTouchScreen = false;
+        if ("maxTouchPoints" in navigator) {
+          hasTouchScreen = navigator.maxTouchPoints > 0;
+        } else if ("msMaxTouchPoints" in navigator) {
+          hasTouchScreen = navigator.msMaxTouchPoints > 0;
+        } else {
+          const mQ = matchMedia?.("(pointer:coarse)");
+          if (mQ?.media === "(pointer:coarse)") {
+            hasTouchScreen = !!mQ.matches;
+          } else if ("orientation" in window) {
+            hasTouchScreen = true; // deprecated, but good fallback
+          } else {
+            // Only as a last resort, fall back to user agent sniffing
+            const UA = navigator.userAgent;
+            hasTouchScreen =
+              /\b(BlackBerry|webOS|iPhone|IEMobile)\b/i.test(UA) ||
+              /\b(Android|Windows Phone|iPad|iPod)\b/i.test(UA);
+          }
+        }
+        
+        if (hasTouchScreen) {
           document.getElementById("calcDiv").style.width="100%";
-       }
+        }
    </script>
 
   <script type="text/javascript">
